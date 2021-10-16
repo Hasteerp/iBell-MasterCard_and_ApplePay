@@ -1,0 +1,37 @@
+#include<stdio.h>
+int main (void){
+    
+//a is assigned the value of monthly rate 
+double a; 
+printf("Enter the monthly rate: ");
+scanf("%lf", &a);
+
+//b is assigned the no. of months
+int b;
+printf("Enter the service duration (in months): ");
+scanf("%d",&b);
+
+//c is assigned the value of swipe rate 
+double c;
+printf("Enter the swipe fee rate (in percentage): ");
+scanf("%lf",&c);
+
+//d is assigned the value of apple pay rate 
+double d;
+printf("Enter the Apple Pay rate (in percentage): ");
+scanf("%lf",&d);
+
+//free is the number of free months given in total months of subscription
+int free= b/4;
+printf("Your total free months(s) using iBell's service is: %d\n",free);
+
+double taxcharge= 1.13*a*(b-free); 
+double swipefee= taxcharge*(c/100);
+double applepay= swipefee*(d/100);
+double Tcharge= taxcharge+swipefee+applepay;
+printf("The total charge including taxes is: %.2lf\n",taxcharge);
+printf("The swipe fee paid to Mastercard is: %.2lf\n",swipefee);
+printf("The fee paid to use Apple Pay is: %.2lf\n",applepay);
+printf("The total charge is: %.2lf\n",Tcharge);
+    return 0;
+}
